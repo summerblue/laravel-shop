@@ -19,6 +19,7 @@
         "vue": "^2.5.7"
     },
     "dependencies": {
-        "china-area-data": "^4.0.0"
+        "china-area-data": "^4.0.0",
+        "sweetalert": "^2.1.0"
     }
 }

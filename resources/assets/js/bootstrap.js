@@ -1,4 +1,4 @@
-
+require('sweetalert');
 window._ = require('lodash');
 
 /**
