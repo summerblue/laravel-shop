@@ -35,4 +35,20 @@ class OrdersController extends Controller
 
         return $orderService->store($user, $address, $request->input('remark'), $request->input('items'));
     }
+
+    public function received(Order $order, Request $request)
+    {
+        // 校验权限
+        $this->authorize('own', $order);
+
+        // 判断订单的发货状态是否为已发货
+        if ($order->ship_status !== Order::SHIP_STATUS_DELIVERED) {
+            throw new InvalidRequestException('发货状态不正确');
+        }
+
+        // 更新发货状态为已收到
+        $order->update(['ship_status' => Order::SHIP_STATUS_RECEIVED]);
+
+        return $order;
+    }
 }
