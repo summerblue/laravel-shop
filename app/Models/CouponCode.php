@@ -66,7 +66,7 @@ class CouponCode extends Model
             throw new CouponCodeUnavailableException('该优惠券现在还不能使用');
         }
 
-        if ($this->not_after && $this->not_after->gt(Carbon::now())) {
+        if ($this->not_after && $this->not_after->lt(Carbon::now())) {
             throw new CouponCodeUnavailableException('该优惠券已过期');
         }
 
