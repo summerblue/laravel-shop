@@ -95,7 +95,7 @@ class ProductsController extends Controller
             // 创建一个富文本编辑器
             $form->editor('description', '商品描述')->rules('required');
             // 创建一组单选框
-            $form->radio('on_sale', '上架')->options(['1' => '是', '0'=> '否'])->default('0');
+            $form->radio('on_sale', '上架')->options(['1' => '是', '0' => '否'])->default('0');
             // 直接添加一对多的关联模型
             $form->hasMany('skus', function (Form\NestedForm $form) {
                 $form->text('title', 'SKU 名称')->rules('required');
@@ -105,7 +105,7 @@ class ProductsController extends Controller
             });
             // 定义事件回调，当模型即将保存时会触发这个回调
             $form->saving(function (Form $form) {
-                $form->model()->price = collect($form->skus)->min('price');
+                $form->model()->price = collect($form->input('skus'))->where(Form::REMOVE_FLAG_NAME, 0)->min('price');
             });
         });
     }
