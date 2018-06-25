@@ -11,7 +11,7 @@ class ApplyRefundRequest extends Request
         ];
     }
 
-    public function attributs()
+    public function attributes()
     {
         return [
             'reason' => '原因',
