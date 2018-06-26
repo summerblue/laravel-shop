@@ -105,7 +105,7 @@ class Order extends Model
             }
             usleep(100);
         }
-        Log::warning(sprintf('find order no failed'));
+        \Log::warning(sprintf('find order no failed'));
 
         return false;
     }
