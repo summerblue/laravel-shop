@@ -76,6 +76,12 @@ class ProductsController extends Controller
             $grid->actions(function ($actions) {
                 $actions->disableDelete();
             });
+            $grid->tools(function ($tools) {
+                // 禁用批量删除按钮
+                $tools->batch(function ($batch) {
+                    $batch->disableDelete();
+                });
+            });
         });
     }
 
