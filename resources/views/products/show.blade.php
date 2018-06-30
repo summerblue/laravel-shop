@@ -107,6 +107,8 @@
         }, function(error) {
           if (error.response && error.response.status === 401) {
             swal('请先登录', '', 'error');
+          } else if (error.response && error.response.data.msg) {
+            swal(error.response.data.msg, '', 'error');
           } else {
             swal('系统错误', '', 'error');
           }
