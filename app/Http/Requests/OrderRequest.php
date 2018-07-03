@@ -19,12 +19,15 @@ class OrderRequest extends Request
                 function ($attribute, $value, $fail) {
                     if (!$sku = ProductSku::find($value)) {
                         $fail('该商品不存在');
+                        return;
                     }
                     if (!$sku->product->on_sale) {
                         $fail('该商品未上架');
+                        return;
                     }
                     if ($sku->stock === 0) {
                         $fail('该商品已售完');
+                        return;
                     }
                     // 获取当前索引
                     preg_match('/items\.(\d+)\.sku_id/', $attribute, $m);
@@ -33,6 +36,7 @@ class OrderRequest extends Request
                     $amount = $this->input('items')[$index]['amount'];
                     if (is_int($amount) && $amount > $sku->stock) {
                         $fail('该商品库存不足');
+                        return;
                     }
                 },
             ],

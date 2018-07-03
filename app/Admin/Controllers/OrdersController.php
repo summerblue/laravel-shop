@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Exceptions\InternalException;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Exceptions\InvalidRequestException;
