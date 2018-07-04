@@ -34,7 +34,7 @@ class OrderRequest extends Request
                     $index  = $m[1];
                     // 根据索引找到用户所提交的购买数量
                     $amount = $this->input('items')[$index]['amount'];
-                    if (is_int($amount) && $amount > $sku->stock) {
+                    if ($amount > 0 && $amount > $sku->stock) {
                         $fail('该商品库存不足');
                         return;
                     }

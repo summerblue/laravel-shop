@@ -24,7 +24,7 @@ class AddCartRequest extends Request
                         $fail('该商品已售完');
                         return;
                     }
-                    if (is_int($this->input('amount')) && $sku->stock < $this->input('amount')) {
+                    if ($this->input('amount') > 0 && $sku->stock < $this->input('amount')) {
                         $fail('该商品库存不足');
                         return;
                     }
