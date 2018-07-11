@@ -31,7 +31,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `admin_permissions` WRITE;
 /*!40000 ALTER TABLE `admin_permissions` DISABLE KEYS */;
-INSERT INTO `admin_permissions` VALUES (1,'All permission','*','','*',NULL,NULL),(2,'Dashboard','dashboard','GET','/',NULL,NULL),(3,'Login','auth.login','','/auth/login\r\n/auth/logout',NULL,NULL),(4,'User setting','auth.setting','GET,PUT','/auth/setting',NULL,NULL),(5,'Auth management','auth.management','','/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs',NULL,NULL),(6,'用户管理','users','','/users','2018-05-31 23:57:45','2018-05-31 23:58:55'),(7,'商品管理','products','','/products','2018-06-05 21:07:20','2018-06-05 21:07:20'),(8,'订单管理','orders','','/orders','2018-06-05 21:07:36','2018-06-05 21:07:36'),(9,'优惠券管理','coupon_codes','','/coupon_codes','2018-06-05 21:07:52','2018-06-05 21:07:52');
+INSERT INTO `admin_permissions` VALUES (1,'All permission','*','','*',NULL,NULL),(2,'Dashboard','dashboard','GET','/',NULL,NULL),(3,'Login','auth.login','','/auth/login\r\n/auth/logout',NULL,NULL),(4,'User setting','auth.setting','GET,PUT','/auth/setting',NULL,NULL),(5,'Auth management','auth.management','','/auth/roles\r\n/auth/permissions\r\n/auth/menu\r\n/auth/logs',NULL,NULL),(6,'用户管理','users','','/users*','2018-05-31 23:57:45','2018-05-31 23:58:55'),(7,'商品管理','products','','/products*','2018-06-05 21:07:20','2018-06-05 21:07:20'),(8,'订单管理','orders','','/orders*','2018-06-05 21:07:36','2018-06-05 21:07:36'),(9,'优惠券管理','coupon_codes','','/coupon_codes*','2018-06-05 21:07:52','2018-06-05 21:07:52');
 /*!40000 ALTER TABLE `admin_permissions` ENABLE KEYS */;
 UNLOCK TABLES;
 
