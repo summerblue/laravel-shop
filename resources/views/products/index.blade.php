@@ -32,7 +32,9 @@
               </a>
             </div>
             <div class="price"><b>￥</b>{{ $product->price }}</div>
-            <a href="{{ route('products.show', ['product' => $product->id]) }}">{{ $product->title }}</a>
+            <div class="title">
+              <a href="{{ route('products.show', ['product' => $product->id]) }}">{{ $product->title }}</a>
+            </div>
           </div>
           <div class="bottom">
             <div class="sold_count">销量 <span>{{ $product->sold_count }}笔</span></div>
