@@ -3534,16 +3534,16 @@
         },
         {
             "name": "yansongda/pay",
-            "version": "v2.3.2",
+            "version": "v2.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yansongda/pay.git",
-                "reference": "4596f55a20ef0cdcf4bd1c51194e8daecc8488e2"
+                "reference": "c9f57c88c784ac5715635c14fb1a6ddc3362f69d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yansongda/pay/zipball/4596f55a20ef0cdcf4bd1c51194e8daecc8488e2",
-                "reference": "4596f55a20ef0cdcf4bd1c51194e8daecc8488e2",
+                "url": "https://api.github.com/repos/yansongda/pay/zipball/c9f57c88c784ac5715635c14fb1a6ddc3362f69d",
+                "reference": "c9f57c88c784ac5715635c14fb1a6ddc3362f69d",
                 "shasum": "",
                 "mirrors": [
                     {
@@ -3586,7 +3586,7 @@
                 "pay",
                 "wechat"
             ],
-            "time": "2018-06-04T07:00:59+00:00"
+            "time": "2018-07-29T03:57:21+00:00"
         },
         {
             "name": "yansongda/supports",
