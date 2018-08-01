@@ -91,7 +91,7 @@ class CouponCodesController extends Controller
             $form->text('code', '优惠码')->rules(function($form) {
                 // 如果 $form->model()->id 不为空，代表是编辑操作
                 if ($id = $form->model()->id) {
-                    return 'nullable|unique:coupon_codes,id,'.$id;
+                    return 'nullable|unique:coupon_codes,code,'.$id.',id';
                 } else {
                     return 'nullable|unique:coupon_codes';
                 }
