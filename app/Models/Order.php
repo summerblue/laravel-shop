@@ -17,6 +17,9 @@ class Order extends Model
     const SHIP_STATUS_DELIVERED = 'delivered';
     const SHIP_STATUS_RECEIVED = 'received';
 
+    const TYPE_NORMAL = 'normal';
+    const TYPE_CROWDFUNDING = 'crowdfunding';
+
     public static $refundStatusMap = [
         self::REFUND_STATUS_PENDING    => '未退款',
         self::REFUND_STATUS_APPLIED    => '已申请退款',
@@ -31,7 +34,13 @@ class Order extends Model
         self::SHIP_STATUS_RECEIVED  => '已收货',
     ];
 
+    public static $typeMap = [
+        self::TYPE_NORMAL       => '普通商品订单',
+        self::TYPE_CROWDFUNDING => '众筹商品订单',
+    ];
+
     protected $fillable = [
+        'type',
         'no',
         'address',
         'total_amount',
@@ -91,7 +100,7 @@ class Order extends Model
     {
         return $this->belongsTo(CouponCode::class);
     }
-    
+
     public static function findAvailableNo()
     {
         // 订单流水号前缀
