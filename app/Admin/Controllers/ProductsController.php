@@ -2,6 +2,7 @@
 
 namespace App\Admin\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 
 use Encore\Admin\Form;
@@ -63,8 +64,12 @@ class ProductsController extends Controller
     protected function grid()
     {
         return Admin::grid(Product::class, function (Grid $grid) {
+            // 使用 with 来预加载商品类目数据，减少 SQL 查询
+            $grid->model()->with(['category']);
             $grid->id('ID')->sortable();
             $grid->title('商品名称');
+            // Laravel-Admin 支持用符号 . 来展示关联关系的字段
+            $grid->column('category.name', '类目');
             $grid->on_sale('已上架')->display(function ($value) {
                 return $value ? '是' : '否';
             });
@@ -97,6 +102,13 @@ class ProductsController extends Controller
         return Admin::form(Product::class, function (Form $form) {
             // 创建一个输入框，第一个参数 title 是模型的字段名，第二个参数是该字段描述
             $form->text('title', '商品名称')->rules('required');
+            // 添加一个类目字段，与之前类目管理类似，使用 Ajax 的方式来搜索添加
+            $form->select('category_id', '类目')->options(function ($id) {
+                $category = Category::find($id);
+                if ($category) {
+                    return [$category->id => $category->full_name];
+                }
+            })->ajax('/admin/api/categories?is_directory=0');
             // 创建一个选择图片的框
             $form->image('image', '封面图片')->rules('required|image');
             // 创建一个富文本编辑器
