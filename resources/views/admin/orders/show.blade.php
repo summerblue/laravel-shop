@@ -108,81 +108,81 @@
 
 <script>
 $(document).ready(function() {
-  // 不同意 按钮的点击事件
+  // 『不同意』按钮的点击事件
   $('#btn-refund-disagree').click(function() {
-  // 注意：Laravel-Admin 的 swal 是 v1 版本，参数和 v2 版本的不太一样
     swal({
       title: '输入拒绝退款理由',
-      type: 'input',
+      input: 'text',
       showCancelButton: true,
-      closeOnConfirm: false,
       confirmButtonText: "确认",
       cancelButtonText: "取消",
-    }, function(inputValue){
-      // 用户点击了取消，inputValue 为 false
-      // === 是为了区分用户点击取消还是没有输入
-      if (inputValue === false) {
-        return;
-      }
-      if (!inputValue) {
-        swal('理由不能为空', '', 'error')
-        return;
-      }
-      // Laravel-Admin 没有 axios，使用 jQuery 的 ajax 方法来请求
-      $.ajax({
-        url: '{{ route('admin.orders.handle_refund', [$order->id]) }}',
-        type: 'POST',
-        data: JSON.stringify({   // 将请求变成 JSON 字符串
-          agree: false,  // 拒绝申请
-          reason: inputValue,
-          // 带上 CSRF Token
-          // Laravel-Admin 页面里可以通过 LA.token 获得 CSRF Token
-          _token: LA.token,
-        }),
-        contentType: 'application/json',  // 请求的数据格式为 JSON
-        success: function (data) {  // 返回成功时会调用这个函数
-          swal({
-            title: '操作成功',
-            type: 'success'
-          }, function() {
-            // 用户点击 swal 上的 按钮时刷新页面
-            location.reload();
-          });
+      showLoaderOnConfirm: true,
+      preConfirm: function(inputValue) {
+        if (!inputValue) {
+          swal('理由不能为空', '', 'error')
+          return false;
         }
+        // Laravel-Admin 没有 axios，使用 jQuery 的 ajax 方法来请求
+        return $.ajax({
+          url: '{{ route('admin.orders.handle_refund', [$order->id]) }}',
+          type: 'POST',
+          data: JSON.stringify({   // 将请求变成 JSON 字符串
+            agree: false,  // 拒绝申请
+            reason: inputValue,
+            // 带上 CSRF Token
+            // Laravel-Admin 页面里可以通过 LA.token 获得 CSRF Token
+            _token: LA.token,
+          }),
+          contentType: 'application/json',  // 请求的数据格式为 JSON
+        });
+      },
+      allowOutsideClick: () => !swal.isLoading()
+    }).then(function (ret) {
+      // 如果用户点击了『取消』按钮，则不做任何操作
+      if (ret.dismiss === 'cancel') {
+        return;
+      }
+      swal({
+        title: '操作成功',
+        type: 'success'
+      }).then(function() {
+        // 用户点击 swal 上的按钮时刷新页面
+        location.reload();
       });
     });
   });
 
-  // 同意按钮的点击事件
+  // 『同意』按钮的点击事件
   $('#btn-refund-agree').click(function() {
     swal({
       title: '确认要将款项退还给用户？',
       type: 'warning',
       showCancelButton: true,
-      closeOnConfirm: false,
       confirmButtonText: "确认",
       cancelButtonText: "取消",
-    }, function(ret){
-      // 用户点击取消，不做任何操作
-      if (!ret) {
+      showLoaderOnConfirm: true,
+      preConfirm: function() {
+        return $.ajax({
+          url: '{{ route('admin.orders.handle_refund', [$order->id]) }}',
+          type: 'POST',
+          data: JSON.stringify({
+            agree: true, // 代表同意退款
+            _token: LA.token,
+          }),
+          contentType: 'application/json',
+        });
+      }
+    }).then(function (ret) {
+      // 如果用户点击了『取消』按钮，则不做任何操作
+      if (ret.dismiss === 'cancel') {
         return;
       }
-      $.ajax({
-        url: '{{ route('admin.orders.handle_refund', [$order->id]) }}',
-        type: 'POST',
-        data: JSON.stringify({
-          agree: true, // 代表同意退款
-          _token: LA.token,
-        }),
-        contentType: 'application/json',
-        success: function (data) {
-          swal({
-            title: '操作成功',
-            type: 'success'
-          }, function() {
-            location.reload();
-          });
-        }
+      swal({
+        title: '操作成功',
+        type: 'success'
+      }).then(function() {
+        // 用户点击 swal 上的按钮时刷新页面
+        location.reload();
       });
     });
   });
