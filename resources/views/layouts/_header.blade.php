@@ -13,6 +13,18 @@
         </div>
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <ul class="nav navbar-nav">
+              <!-- 顶部类目菜单开始 -->
+              <!-- 判断模板是否有 $categoryTree 变量 -->
+              @if(isset($categoryTree))
+                <li>
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">所有类目 <b class="caret"></b></a>
+                  <ul class="dropdown-menu multi-level">
+                    <!-- 遍历 $categoryTree 集合，将集合中的每一项以 $category 变量注入 layouts._category_item 模板中并渲染 -->
+                    @each('layouts._category_item', $categoryTree, 'category')
+                  </ul>
+                </li>
+            @endif
+            <!-- 顶部类目菜单结束 -->
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <!-- 登录注册链接开始 -->
