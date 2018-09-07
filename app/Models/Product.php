@@ -35,6 +35,11 @@ class Product extends Model
         return $this->hasMany(ProductSku::class);
     }
 
+    public function properties()
+    {
+        return $this->hasMany(ProductProperty::class);
+    }
+
     public function crowdfunding()
     {
         return $this->hasOne(CrowdfundingProduct::class);
@@ -48,6 +53,17 @@ class Product extends Model
         }
 
         return \Storage::disk('public')->url($this->attributes['image']);
+    }
+
+    public function getGroupedPropertiesAttribute()
+    {
+        return $this->properties
+            // 按照属性名聚合，返回的集合的 key 是属性名，value 是包含该属性名的所有属性集合
+            ->groupBy('name')
+            ->map(function ($properties) {
+                // 使用 map 方法将属性集合变为属性值集合
+                return $properties->pluck('value')->all();
+            });
     }
 
     public function category()
