@@ -30,6 +30,11 @@ class Product extends Model
         'on_sale' => 'boolean', // on_sale 是一个布尔类型的字段
     ];
 
+    public function scopeByIds($query, $ids)
+    {
+        return $query->whereIn('id', $ids)->orderByRaw(sprintf("FIND_IN_SET(id, '%s')", join(',', $ids)));
+    }
+
     // 与商品SKU关联
     public function skus()
     {
