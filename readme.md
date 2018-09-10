@@ -1,91 +1,61 @@
-## Laravel Shop
+## Laravel Shop Advanced
 
-> Laravel Shop 是课程 [《L05 Laravel 教程 - 电商实战》](https://laravel-china.org/topics/13206/laravel-shop-course) 的源代码。
+> Laravel Shop Advanced 是课程 [《L06 Laravel 教程 - 电商实战进阶》](https://laravel-china.org/topics/16917/laravel-shop-course-advanced) 的源代码。
 
 ## 功能
 
-Laravel Shop 功能如下：
+Laravel Shop Advanced 功能如下：
 
-![_big](https://user-images.githubusercontent.com/324764/41384789-6fa309c6-6faa-11e8-93e0-eeb8d36fe7f7.jpg)
+![功能图](https://user-images.githubusercontent.com/324764/45274496-50751f00-b4ea-11e8-81eb-5a6b881a32a2.png)
+
 
 ## 关于教程
 
 <p align="center">
-<a href="https://laravel-china.org/topics/13206/laravel-shop-course">
-<img src="https://user-images.githubusercontent.com/324764/41385516-bb14c184-6fae-11e8-9be1-250950d8732d.jpg" alt="《L05 Laravel 教程 - 电商实战》" width='420'>
+<a href="https://laravel-china.org/topics/16917/laravel-shop-course-advanced">
+<img src="https://user-images.githubusercontent.com/324764/45274538-85817180-b4ea-11e8-9031-4bb889b186c9.jpg" alt="《L06 Laravel 教程 - 电商实战进阶》" width='420'>
 </a>
 </p>
 
 
-课程沿用 [Laravel 实战课程系列](https://laravel-china.org/courses) 的教学方法，利用线索式的行文方式，带你熟悉项目需求分析、开发计划、项目创建、支付接口调试等电商项目的开发流程。
+本书是 Laravel 教程系列的第六本，前五本分别是：
 
-[Laravel 实战课程系列](https://laravel-china.org/courses)  的定位是最专业的商业项目开发课程，课程中所教授的技术方案，都是作者在实战中不断积累而来，所以你学到不是一个简单的『玩具项目』，而是一个经受过实战考验的商业解决方案，可以在你的商业项目中大胆使用。
+> ** Laravel 实战系列教程** 里的每一个课程都是一个不同的阶段，后面的课程依赖于前面的知识，独立学习的话却又自成体系，因为每一个课程就是一个实战的项目。核心设计理念是一步步把你从 Laravel 新手培养为 Laravel 高级工程师。
 
-## 项目知识点
+-   第一本 [《L01 Laravel 入门教程 - 从零到部署上线》](https://laravel-china.org/topics/3383)
+-   第二本 [《L02 Laravel 进阶课程 - 从零开始构建论坛系统》](https://laravel-china.org/topics/6592)
+-   第三本 [《L03 Laravel 教程 - 实战构架 API 服务器》](https://laravel-china.org/topics/7657)
+-   第四本 [《L04 Laravel 教程 - 微信小程序从零到发布》](https://laravel-china.org/topics/10318)
+-   第五本 [《L05 Laravel 教程 - 电商实战》](https://laravel-china.org/topics/13206/laravel-shop-course)
 
 
--   Composer autoload 功能的使用姿势；
--   Laravel Mix 的基本用法；
--   使用 Laravel 快速构建用户登录、注册功能；
--   使用 MailHog 调试邮件发送功能；
--   使用 Laravel 的 Notification 模块发送邮件；
--   优雅地处理 Laravel 项目中的异常；
--   事件与监听器的使用；
--   使用授权策略来控制权限；
--   使用 overtrue/laravel-lang 来汉化错误信息；
--   laravel-admin 扩展包的安装与配置；
--   使用 laravel-admin 快速构建对模型的增删改查功能；
--   使用 laravel-admin 配置后台用户角色、权限；
--   商品 SKU 的概念；
--   使用查询构造器根据用户输入来动态构建查询 SQL；
--   设置 Laravel 路由顺序的正确姿势；
--   购物车的设计与实现；
--   使用闭包来校验用户输入；
--   自定义 Laravel 验证器；
--   订单流水号的生成；
--   创建订单时保存用户收货地址信息的正确姿势；
--   代表状态的值应使用常量；
--   在 Laravel 中使用数据库事务的正确姿势；
--   高并发下减商品库存的正确姿势；
--   延迟任务的使用；
--   使用预加载与延迟预加载解决数据库 N + 1 问题；
--   通过对业务代码的封装来提高代码的复用性；
--  yansongda/pay 扩展包的安装与配置；
--  支付宝沙箱账号的申请与配置；
--  微信扫码支付的开通与配置；
--  拉起支付宝、微信支付；
--  支付的前端回调与后端回调的概念；
--  在本地开发环境处理支付宝、微信支付后端回调的正确姿势；
--  二维码的生成；
--  管理员收到支付订单开始发货；
--  用户收到商品后确认收货；
--  用户确认收货后选择退款；
--  管理员接到退款请求后的拒绝退款；
--  支付宝、微信支付的退款处理；
--  优惠券的设计与实现；
+课程序号 L06，本书将在《L05 Laravel 教程 - 电商实战》课程项目 [Laravel Shop](https://github.com/summerblue/laravel-shop) 基础上带你一步一步构建一个更加强大的电商系统。
+
 
 ## 截图
 
+### 高性能无限级分类：
 
-![0](https://user-images.githubusercontent.com/324764/41385028-c1329666-6fab-11e8-8052-eb8d863cb766.png)
+![image](https://user-images.githubusercontent.com/324764/45275184-d0e94f00-b4ed-11e8-8e77-32f44c9bc535.png)
 
+### 众筹商品
 
-![1](https://user-images.githubusercontent.com/324764/41385029-c1a58dba-6fab-11e8-9c15-5cdf85f848b6.gif)
+![image](https://user-images.githubusercontent.com/324764/45275222-055d0b00-b4ee-11e8-9d0d-a45265f00978.png)
 
+### 分期付款支付
 
-![2](https://user-images.githubusercontent.com/324764/41385030-c2034504-6fab-11e8-8b7a-04797afa6b28.png)
+![image](https://user-images.githubusercontent.com/324764/45275238-1a399e80-b4ee-11e8-9e51-930b0fade59d.png)
 
+### 分面搜索：
 
-![3](https://user-images.githubusercontent.com/324764/41385031-c267b3ae-6fab-11e8-815c-5a027ca34318.png)
+![image](https://user-images.githubusercontent.com/324764/45275268-53720e80-b4ee-11e8-8a88-b8f4628f8da5.png)
 
+![s54gzyeem9](https://user-images.githubusercontent.com/324764/45275286-76042780-b4ee-11e8-8314-f7fd0461a634.gif)
 
-![5](https://user-images.githubusercontent.com/324764/41385032-c2c82de2-6fab-11e8-9aa6-0d88cc486dfe.png)
+### 商品推荐：
 
+![image](https://user-images.githubusercontent.com/324764/45275308-8fa56f00-b4ee-11e8-913b-ccf9d232c307.png)
 
-![6](https://user-images.githubusercontent.com/324764/41385033-c32a3140-6fab-11e8-8deb-fb23fe3ae8a6.png)
+### 阿里云多机部署，负载均衡实战：
 
-
-![7](https://user-images.githubusercontent.com/324764/41385034-c39c59c8-6fab-11e8-899a-5f042fa0bd1d.png)
-
-
-![8](https://user-images.githubusercontent.com/324764/41385035-c414fc84-6fab-11e8-82f6-ff50246a4853.png)
+![image](https://user-images.githubusercontent.com/324764/45275373-f88ce700-b4ee-11e8-952b-255a2fa7e7cc.png)
