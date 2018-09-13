@@ -45,7 +45,7 @@ class OrdersController extends Controller
         }
         // 众筹订单只有在众筹成功之后发货
         if ($order->type === Order::TYPE_CROWDFUNDING &&
-            $order->crowdfunding_status === CrowdfundingProduct::STATUS_SUCCESS) {
+            $order->items[0]->product->crowdfunding->status !== CrowdfundingProduct::STATUS_SUCCESS) {
             throw new InvalidRequestException('众筹订单只能在众筹成功之后发货');
         }
         // 判断当前订单发货状态是否为未发货
