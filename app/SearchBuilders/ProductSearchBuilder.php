@@ -62,9 +62,9 @@ class ProductSearchBuilder
                         'long_title^2',
                         'category^2',
                         'description',
-                        'skus.title',
-                        'skus.description',
-                        'properties.value',
+                        'skus_title',
+                        'skus_description',
+                        'properties_value',
                     ],
                 ],
             ];

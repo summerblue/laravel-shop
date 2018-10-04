@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Console\Commands\Elasticsearch\Indices;
 
 use Illuminate\Support\Facades\Artisan;
@@ -32,8 +33,13 @@ class ProjectIndex
                         'type'            => 'text',
                         'analyzer'        => 'ik_smart',
                         'search_analyzer' => 'ik_smart_synonym',
+                        'copy_to'         => 'skus_title',
                     ],
-                    'description' => ['type' => 'text', 'analyzer' => 'ik_smart'],
+                    'description' => [
+                        'type'     => 'text',
+                        'analyzer' => 'ik_smart',
+                        'copy_to'  => 'skus_description',
+                    ],
                     'price'       => ['type' => 'scaled_float', 'scaling_factor' => 100],
                 ],
             ],
@@ -41,7 +47,7 @@ class ProjectIndex
                 'type'       => 'nested',
                 'properties' => [
                     'name'         => ['type' => 'keyword'],
-                    'value'        => ['type' => 'keyword'],
+                    'value'        => ['type' => 'keyword', 'copy_to' => 'properties_value'],
                     'search_value' => ['type' => 'keyword'],
                 ],
             ],
