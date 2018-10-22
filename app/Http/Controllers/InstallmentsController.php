@@ -23,6 +23,7 @@ class InstallmentsController extends Controller
 
     public function show(Installment $installment)
     {
+        $this->authorize('own', $installment);
         // 取出当前分期付款的所有的还款计划，并按还款顺序排序
         $items = $installment->items()->orderBy('sequence')->get();
         return view('installments.show', [
