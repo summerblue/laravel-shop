@@ -130,24 +130,26 @@ class InstallmentsController extends Controller
             return true;
         }
 
-        $item->update([
-            'paid_at'        => Carbon::now(),
-            'payment_method' => $paymentMethod,
-            'payment_no'     => $paymentNo,
-        ]);
-
-        if ($item->sequence === 0) {
-            $installment->update(['status' => Installment::STATUS_REPAYING]);
-            $installment->order->update([
+        \DB::transaction(function () use ($paymentNo, $paymentMethod, $no, $installment, $item) {
+            $item->update([
                 'paid_at'        => Carbon::now(),
-                'payment_method' => 'installment',
-                'payment_no'     => $no,
+                'payment_method' => $paymentMethod,
+                'payment_no'     => $paymentNo,
             ]);
-            event(new OrderPaid($installment->order));
-        }
-        if ($item->sequence === $installment->count - 1) {
-            $installment->update(['status' => Installment::STATUS_FINISHED]);
-        }
+
+            if ($item->sequence === 0) {
+                $installment->update(['status' => Installment::STATUS_REPAYING]);
+                $installment->order->update([
+                    'paid_at'        => Carbon::now(),
+                    'payment_method' => 'installment',
+                    'payment_no'     => $no,
+                ]);
+                event(new OrderPaid($installment->order));
+            }
+            if ($item->sequence === $installment->count - 1) {
+                $installment->update(['status' => Installment::STATUS_FINISHED]);
+            }
+        });
 
         return true;
     }
