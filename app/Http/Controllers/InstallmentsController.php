@@ -100,6 +100,10 @@ class InstallmentsController extends Controller
     public function alipayNotify()
     {
         $data = app('alipay')->verify();
+        // 如果订单状态不是成功或者结束，则不走后续的逻辑
+        if(!in_array($data->trade_status, ['TRADE_SUCCESS', 'TRADE_FINISHED'])) {
+            return app('alipay')->success();
+        }
         if ($this->paid($data->out_trade_no, 'alipay', $data->trade_no)) {
             return app('alipay')->success();
         }
