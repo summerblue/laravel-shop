@@ -113,6 +113,12 @@ class OrdersController extends Controller
         }
         // 是否同意退款
         if ($request->input('agree')) {
+            // 清空拒绝退款理
+            $extra = $order->extra ?: [];
+            unset($extra['refund_disagree_reason']);
+            $order->update([
+                'extra' => $extra,
+            ]);
             // 调用退款逻辑
             $orderService->refundOrder($order);
         } else {
