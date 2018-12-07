@@ -43,12 +43,20 @@ class Handler extends ExceptionHandler
     /**
      * Render an exception into an HTTP response.
      *
+     * @url  https://laravel-china.org/topics/14980/
      * @param  \Illuminate\Http\Request  $request
      * @param  \Exception  $exception
      * @return \Illuminate\Http\Response
      */
     public function render($request, Exception $exception)
     {
+        if ($exception instanceof AuthorizationException) {
+            $msg = '没有操作权限';
+            if ($request->expectsJson()) {
+                return response()->json(['msg' => $msg], 403);
+            }
+            return response()->view('pages.error', ['msg' => $msg]);
+        }
         return parent::render($request, $exception);
     }
 }
