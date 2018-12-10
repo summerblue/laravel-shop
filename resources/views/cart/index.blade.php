@@ -50,6 +50,7 @@
       @endforeach
       </tbody>
     </table>
+    @if(count($cartItems)>0)
     <div>
       <form class="form-horizontal" role="form" id="order-form">
         <div class="form-group">
@@ -88,6 +89,7 @@
         </div>
       </form>
     </div>
+    @endif
   </div>
 </div>
 </div>
