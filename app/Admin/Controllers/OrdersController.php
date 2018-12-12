@@ -28,6 +28,9 @@ class OrdersController extends Controller
 
     public function show(Order $order)
     {
+        if (!$order->paid_at) {
+            throw new InvalidRequestException('该订单未付款');
+        }
         return Admin::content(function (Content $content) use ($order) {
             $content->header('查看订单');
             // body 方法可以接受 Laravel 的视图作为参数
