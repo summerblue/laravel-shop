@@ -113,7 +113,7 @@ class CouponCodesController extends Controller
             $form->text('total', '总量')->rules('required|numeric|min:0');
             $form->text('min_amount', '最低金额')->rules('required|numeric|min:0');
             $form->datetime('not_before', '开始时间');
-            $form->datetime('not_after', '结束时间');
+            $form->datetime('not_after', '结束时间')->rules('after_or_equal:not_before', ['after_or_equal' => '结束时间必须大于或等于开始时间']);;
             $form->radio('enabled', '启用')->options(['1' => '是', '0' => '否']);
 
             $form->saving(function (Form $form) {
