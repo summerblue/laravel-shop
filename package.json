@@ -18,5 +18,8 @@
         "lodash": "^4.17.5",
         "popper.js": "^1.12",
         "vue": "^2.5.17"
+    },
+    "dependencies": {
+        "china-area-data": "^4.0.0"
     }
 }

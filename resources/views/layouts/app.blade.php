@@ -10,13 +10,15 @@
   <!-- 样式 -->
   <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 </head>
-<body id="app" class="{{ route_class() }}-page">
+<body>
+<div id="app" class="{{ route_class() }}-page">
   @include('layouts._header')
-  <main class="container">
+  <div class="container">
     @yield('content')
-  </main>
+  </div>
   @include('layouts._footer')
-</body>
+</div>
 <!-- JS 脚本 -->
 <script src="{{ mix('js/app.js') }}"></script>
+</body>
 </html>
