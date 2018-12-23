@@ -4,6 +4,8 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
 /* universal */
 
 body {
@@ -244,3 +246,49 @@ body {
      }
    }
  }
+
+.cart-index-page {
+  .product_list {
+    .preview {
+      img {
+        max-width: 80px;
+        max-height: 80px;
+      }
+      margin-right: 20px;
+    }
+
+    .product_info {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      font-size: 12px;
+      .product_title, .sku_title, .warning {
+        display: block;
+      }
+
+      .product_title a {
+        color: #3c3c3c;
+        font-size: 14px;
+      }
+      .not_on_sale {
+        .product_title, .sku_title {
+          text-decoration: line-through;
+        }
+        .warning {
+          color: red;
+        }
+      }
+    }
+
+    .price {
+      font-size: 12px;
+      font-weight: 700;
+      color: #3c3c3c;
+    }
+
+    input.amount {
+      width: 60px;
+      border-radius: 0 !important;
+    }
+  }
+}
