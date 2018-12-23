@@ -52,7 +52,7 @@
           <td colspan="4">
             <form action="{{ route('admin.orders.ship', [$order->id]) }}" method="post" class="form-inline">
               <!-- 别忘了 csrf token 字段 -->
-              <input type="hidden" name="_token" value="{{ csrf_token() }}">
+              {{ csrf_field() }}
               <div class="form-group {{ $errors->has('express_company') ? 'has-error' : '' }}">
                 <label for="express_company" class="control-label">物流公司</label>
                 <input type="text" id="express_company" name="express_company" value="" class="form-control" placeholder="输入物流公司">
