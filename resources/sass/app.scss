@@ -122,8 +122,50 @@ body {
   }
   .search-form {
     padding: 0 5px 10px;
+    .category-breadcrumb {
+      line-height: 28px;
+    }
+    .all-products {
+      font-size: 12px;
+      color: #666;
+      text-decoration: none;
+    }
+    .category {
+      font-size: 12px;
+      height: 22px;
+      border: 1px solid #eee;
+      padding: 4px;
+      color: #666;
+      a {
+        text-decoration: none;
+        color: #666;
+      }
+    }
+  }
+  .filters {
+    font-size: 12px;
     margin-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    &>.row {
+      border-top: 1px solid #eee;
+      border-bottom: 1px solid #eee;
+      margin: 0 -20px;
+      .filter-key {
+        width: 150px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: #f3f3f3;
+        color: #666;
+      }
+      .filter-values {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        a {
+          margin-right: 50px;
+          color: #666;
+          text-decoration: none;
+        }
+      }
+    }
   }
 }
 
