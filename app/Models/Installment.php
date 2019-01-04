@@ -49,6 +49,24 @@ class Installment extends Model
         return $this->hasMany(InstallmentItem::class);
     }
 
+    public function refreshRefundStatus()
+    {
+        $allSuccess = true;
+        // 重新加载 items，保证与数据库中数据同步
+        $this->load(['items']);
+        foreach ($this->items as $item) {
+            if ($item->paid_at && $item->refund_status !== InstallmentItem::REFUND_STATUS_SUCCESS) {
+                $allSuccess = false;
+                break;
+            }
+        }
+        if ($allSuccess) {
+            $this->order->update([
+                'refund_status' => Order::REFUND_STATUS_SUCCESS,
+            ]);
+        }
+    }
+
     public static function findAvailableNo()
     {
         // 分期流水号前缀
