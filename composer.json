@@ -14,6 +14,7 @@
         "endroid/qr-code": "^3.5",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.7.*",
+        "laravel/horizon": "^2.0",
         "laravel/tinker": "^1.0",
         "moontoast/math": "^1.1",
         "overtrue/laravel-lang": "^3.0",
