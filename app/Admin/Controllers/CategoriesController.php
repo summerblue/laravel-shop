@@ -89,7 +89,8 @@ class CategoriesController extends Controller
         // 用户输入的值通过 q 参数获取
         $search = $request->input('q');
         $result = Category::query()
-            ->where('is_directory', true)  // 由于这里选择的是父类目，因此需要限定 is_directory 为 true
+            // 通过 is_directory 参数来控制
+            ->where('is_directory', boolval($request->input('is_directory', true)))
             ->where('name', 'like', '%'.$search.'%')
             ->paginate();
 
