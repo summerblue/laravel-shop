@@ -24,8 +24,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // 每分钟执行一次
+        $schedule->command('cron:finish-crowdfunding')->everyMinute();
     }
 
     /**
