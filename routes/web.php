@@ -38,6 +38,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('payment/{order}/installment', 'PaymentController@payByInstallment')->name('payment.installment');
 
     Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
+
+    Route::get('installments', 'InstallmentsController@index')->name('installments.index');
 });
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
 Route::post('payment/alipay/notify', 'PaymentController@alipayNotify')->name('payment.alipay.notify');
