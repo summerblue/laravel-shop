@@ -11,7 +11,7 @@
               <img class="cover" src="{{ $product->image_url }}" alt="">
             </div>
             <div class="col-7">
-              <div class="title">{{ $product->title }}</div>
+              <div class="title">{{ $product->long_title ?: $product->title }}</div>
               <!-- 众筹商品模块开始 -->
               @if($product->type === \App\Models\Product::TYPE_CROWDFUNDING)
                 <div class="crowdfunding-info">

@@ -18,6 +18,7 @@ class Product extends Model
         'title', 'description', 'image', 'on_sale',
         'rating', 'sold_count', 'review_count', 'price',
         'type',
+        'long_title', // 添加 long_title 到 $fillable 属性中
     ];
     protected $casts = [
         'on_sale' => 'boolean', // on_sale 是一个布尔类型的字段
