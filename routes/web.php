@@ -1,5 +1,6 @@
 <?php
 
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
 Route::redirect('/', '/products')->name('root');
 Route::get('products', 'ProductsController@index')->name('products.index');
 
@@ -31,7 +32,6 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('orders/{order}/apply_refund', 'OrdersController@applyRefund')->name('orders.apply_refund');
 
     Route::post('crowdfunding_orders', 'OrdersController@crowdfunding')->name('crowdfunding_orders.store');
-    Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
 
     Route::get('payment/{order}/alipay', 'PaymentController@payByAlipay')->name('payment.alipay');
     Route::get('payment/alipay/return', 'PaymentController@alipayReturn')->name('payment.alipay.return');
