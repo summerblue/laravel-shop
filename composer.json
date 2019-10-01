@@ -10,6 +10,7 @@
     "require": {
         "php": "^7.2",
         "encore/laravel-admin": "1.7.7",
+        "endroid/qr-code": "^3.6",
         "fideloper/proxy": "^4.0",
         "jxlwqq/quill": "^1.0",
         "laravel/framework": "^6.0",
