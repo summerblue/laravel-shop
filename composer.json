@@ -15,6 +15,7 @@
         "jxlwqq/quill": "^1.0",
         "laravel/framework": "^6.0",
         "laravel/tinker": "^1.0",
+        "moontoast/math": "^1.1",
         "overtrue/laravel-lang": "^3.0",
         "yansongda/pay": "^2.8"
     },
