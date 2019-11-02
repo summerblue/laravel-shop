@@ -120,13 +120,11 @@ class ProductsController extends Controller
 
                 // 添加到 filter 类型中
                 $params['body']['query']['bool']['filter'][] = [
-                    // 由于我们要筛选的是 nested 类型下的属性，因此需要用 nested 查询
                     'nested' => [
-                        // 指明 nested 字段
                         'path'  => 'properties',
                         'query' => [
-                            ['term' => ['properties.name' => $name]],
-                            ['term' => ['properties.value' => $value]],
+                            // 将原来的两个 term 查询改成一个
+                            ['term' => ['properties.search_value' => $filter]],
                         ],
                     ],
                 ];
