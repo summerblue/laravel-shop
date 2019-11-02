@@ -56,6 +56,7 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'ngrok_url' => env('NGROK_URL'),
     /*
     |--------------------------------------------------------------------------
     | Application Timezone
