@@ -13,6 +13,7 @@ use App\Models\ProductSku;
 use App\Exceptions\InvalidRequestException;
 use App\Jobs\CloseOrder;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Redis;
 
 class OrderService
 {
@@ -167,6 +168,7 @@ class OrderService
             if ($sku->decreaseStock(1) <= 0) {
                 throw new InvalidRequestException('该商品库存不足');
             }
+            Redis::decr('seckill_sku_'.$sku->id);
 
             return $order;
         });
