@@ -140,6 +140,10 @@ class OrderService
     public function seckill(User $user, array $addressData, ProductSku $sku)
     {
         $order = \DB::transaction(function () use ($user, $addressData, $sku) {
+            // 扣减对应 SKU 库存
+            if ($sku->decreaseStock(1) <= 0) {
+                throw new InvalidRequestException('该商品库存不足');
+            }
             // 创建一个订单
             $order = new Order([
                 'address'      => [ // address 字段直接从 $addressData 数组中读取
@@ -164,10 +168,6 @@ class OrderService
             $item->product()->associate($sku->product_id);
             $item->productSku()->associate($sku);
             $item->save();
-            // 扣减对应 SKU 库存
-            if ($sku->decreaseStock(1) <= 0) {
-                throw new InvalidRequestException('该商品库存不足');
-            }
             Redis::decr('seckill_sku_'.$sku->id);
 
             return $order;
