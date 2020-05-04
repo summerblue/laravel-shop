@@ -11,5 +11,5 @@ Route::group([
 ], function (Router $router) {
 
     $router->get('/', 'HomeController@index')->name('admin.home');
-
+    $router->get('users', 'UsersController@index');
 });
