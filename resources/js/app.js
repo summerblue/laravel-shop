@@ -18,6 +18,8 @@ window.Vue = require('vue');
 
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
+require('./components/SelectDistrict');
+require('./components/UserAddressesCreateAndEdit');
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
