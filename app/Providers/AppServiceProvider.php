@@ -32,7 +32,8 @@ class AppServiceProvider extends ServiceProvider
         });
 
         $this->app->singleton('wechat_pay', function () {
-            $config = config('pay.wechat');
+            $config               = config('pay.wechat');
+            $config['notify_url'] = route('payment.wechat.notify');
             if (app()->environment() !== 'production') {
                 $config['log']['level'] = Logger::DEBUG;
             } else {
