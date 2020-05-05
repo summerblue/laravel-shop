@@ -5,6 +5,7 @@ namespace App\Admin\Controllers;
 use App\Models\Order;
 use Encore\Admin\Controllers\AdminController;
 use Encore\Admin\Grid;
+use Encore\Admin\Layout\Content;
 
 class OrdersController extends AdminController
 {
@@ -43,5 +44,13 @@ class OrdersController extends AdminController
         });
 
         return $grid;
+    }
+
+    public function show($id, Content $content)
+    {
+        return $content
+            ->header('查看订单')
+            // body 方法可以接受 Laravel 的视图作为参数
+            ->body(view('admin.orders.show', ['order' => Order::find($id)]));
     }
 }
