@@ -316,6 +316,29 @@ body {
             color: red;
         }
     }
+    .properties-list {
+        border-bottom: 1px solid #e6e6e6;
+        margin-bottom: 20px;
+        .properties-list-title {
+            padding: 5px 0;
+            color: #999;
+            font-weight: 700;
+        }
+        .properties-list-body {
+            font-size: 12px;
+            padding: 5px 0;
+            list-style: none;
+            text-indent: 0;
+            li {
+                display: inline-block;
+                width: 30%;
+                overflow: hidden;
+            }
+        }
+    }
+    .product-description img {
+        max-width: 100%;
+    }
 
 }
 
