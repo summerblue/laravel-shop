@@ -50,6 +50,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
 
     Route::post('crowdfunding_orders', 'OrdersController@crowdfunding')->name('crowdfunding_orders.store');
+
+    Route::get('installments', 'InstallmentsController@index')->name('installments.index');
 });
 
 Route::get('products/{product}', 'ProductsController@show')->name('products.show');
