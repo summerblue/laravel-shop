@@ -15888,4 +15888,59 @@ body {
   border-radius: 0 !important;
 }
 
+.orders-index-page .list-group-item {
+  font-size: 12px;
+  border: none;
+  padding: 0;
+  margin-bottom: 15px;
+}
+
+.orders-index-page .list-group-item .panel {
+  margin: 0;
+}
+
+.orders-index-page .list-group-item .panel .card-body {
+  padding: 0;
+}
+
+.orders-index-page .list-group-item .table {
+  margin: 0;
+}
+
+.orders-index-page .list-group-item .table td[rowspan] {
+  border-left: 1px solid #ddd;
+}
+
+.orders-index-page .list-group-item .product-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.orders-index-page .list-group-item .product-info .preview {
+  border: 1px solid #eee;
+  margin-right: 5px;
+}
+
+.orders-index-page .list-group-item .product-info .preview img {
+  max-width: 80px;
+  max-height: 80px;
+}
+
+.orders-index-page .list-group-item .product-info .product-title,
+.orders-index-page .list-group-item .product-info .sku-title {
+  display: block;
+}
+
+.orders-index-page .list-group-item .product-info .product-title > a {
+  color: #3c3c3c;
+}
+
+.orders-index-page .list-group-item .product-info .sku-title {
+  color: #9e9e9e;
+}
+
+.orders-index-page .list-group-item .total-amount {
+  font-weight: bolder;
+}
+
 
