@@ -16033,4 +16033,10 @@ body {
   padding-right: 10px;
 }
 
+.orders-show-page .payment-buttons,
+.orders-show-page .receive-button {
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
 
