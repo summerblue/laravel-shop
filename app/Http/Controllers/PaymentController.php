@@ -147,4 +147,9 @@ class PaymentController extends Controller
 
         return app('wechat_pay')->success();
     }
+    
+    protected function afterPaid(Order $order)
+    {
+        event(new OrderPaid($order));
+    }
 }
