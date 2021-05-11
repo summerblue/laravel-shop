@@ -39,6 +39,8 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
     Route::post('orders/{order}/apply_refund', 'OrdersController@applyRefund')->name('orders.apply_refund');
 
     Route::get('coupon_codes/{code}', 'CouponCodesController@show')->name('coupon_codes.show');
+
+    Route::post('crowdfunding_orders', 'OrdersController@crowdfunding')->name('crowdfunding_orders.store');
 });
 
 Route::redirect('/', '/products')->name('root');

@@ -15901,6 +15901,41 @@ body {
   padding: 20px;
 }
 
+.products-show-page .crowdfunding-info {
+  margin-bottom: 20px;
+  font-size: 14px;
+}
+
+.products-show-page .crowdfunding-info .have-text {
+  font-size: 16px;
+}
+
+.products-show-page .crowdfunding-info .total-amount {
+  font-size: 32px;
+}
+
+.products-show-page .crowdfunding-info .total-amount .symbol {
+  font-size: 20px;
+}
+
+.products-show-page .crowdfunding-info .progress {
+  height: 10px;
+  margin-bottom: 5px;
+}
+
+.products-show-page .crowdfunding-info .progress-info {
+  font-weight: 600;
+  margin: 10px 0;
+}
+
+.products-show-page .crowdfunding-info .current-progress {
+  color: #a106e0;
+}
+
+.products-show-page .crowdfunding-info .text-red {
+  color: red;
+}
+
 .cart-index-page .product_list .preview {
   margin-right: 20px;
 }
