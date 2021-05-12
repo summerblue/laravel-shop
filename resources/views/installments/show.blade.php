@@ -102,3 +102,23 @@
     </div>
   </div>
 @endsection
+
+@section('scriptsAfterJs')
+<script>
+  $(document).ready(function() {
+    $('#btn-wechat').click(function() {
+      swal({
+        content: $('<img src="{{ route('installments.wechat', ['installment' => $installment->id]) }}" />')[0],
+        // buttons 参数可以设置按钮显示的文案
+        buttons: ['关闭', '已完成付款'],
+      })
+        .then(function(result) {
+          // 如果用户点击了 已完成付款 按钮，则重新加载页面
+          if (result) {
+            location.reload();
+          }
+        })
+    });
+  });
+</script>
+@endsection
