@@ -52,6 +52,7 @@ Route::group(['middleware' => ['auth', 'verified']], function() {
 });
 
 Route::post('installments/wechat/notify', 'InstallmentsController@wechatNotify')->name('installments.wechat.notify');
+Route::post('installments/wechat/refund_notify', 'InstallmentsController@wechatRefundNotify')->name('installments.wechat.refund_notify');
 
 // 后端回调不能放在 auth 中间件中
 Route::post('installments/alipay/notify', 'InstallmentsController@alipayNotify')->name('installments.alipay.notify');
