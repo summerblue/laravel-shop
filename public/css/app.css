@@ -16268,4 +16268,77 @@ body {
   }
 }
 
+.installments-show-page {
+  font-size: 12px;
+}
+
+.installments-show-page .table {
+  margin-bottom: 0;
+}
+
+.installments-show-page .table .repaid {
+  color: green;
+}
+
+.installments-show-page .table .overdue {
+  color: red;
+}
+
+.installments-show-page .item-amount {
+  padding-right: 20px;
+  width: 200px;
+}
+
+.installments-show-page .installment-top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.installments-show-page .installment-info {
+  width: 50%;
+  border-right: 1px solid #ddd;
+}
+
+.installments-show-page .installment-info .line {
+  display: flex;
+  flex-direction: row;
+}
+
+.installments-show-page .installment-info .line .line-label {
+  width: 80px;
+  text-align: right;
+}
+
+.installments-show-page .installment-info .line .line-value {
+  padding-left: 20px;
+  flex-shrink: 100;
+}
+
+.installments-show-page .installment-next {
+  width: 50%;
+  font-family: Verdana, Tahoma, Helvetica, Arial;
+}
+
+.installments-show-page .installment-next .installment-clear {
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+.installments-show-page .installment-next .total-amount {
+  font-weight: bolder;
+  font-size: 14px;
+}
+
+.installments-show-page .installment-next .value {
+  display: inline-block;
+  width: 150px;
+  padding-right: 20px;
+}
+
+.installments-show-page .payment-buttons {
+  margin-top: 10px;
+  padding-right: 10px;
+}
+
 
