@@ -15726,6 +15726,27 @@ body {
   color: #666;
 }
 
+.products-index-page .search-form .filter,
+.products-favorites-page .search-form .filter {
+  border: 1px red solid;
+  font-size: 12px;
+  padding: 2px 0 2px 2px;
+}
+
+.products-index-page .search-form .filter .filter-value,
+.products-favorites-page .search-form .filter .filter-value {
+  color: red;
+}
+
+.products-index-page .search-form .filter .remove-filter,
+.products-favorites-page .search-form .filter .remove-filter {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  background: red;
+  padding: 2px;
+}
+
 .products-index-page .filters,
 .products-favorites-page .filters {
   font-size: 12px;
