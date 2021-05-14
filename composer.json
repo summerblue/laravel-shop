@@ -9,6 +9,7 @@
     "license": "MIT",
     "require": {
         "php": "^7.3|^8.0",
+        "elasticsearch/elasticsearch": "~7.0",
         "encore/laravel-admin": "1.8.11",
         "endroid/qr-code": "^4.0",
         "fideloper/proxy": "^4.4",
