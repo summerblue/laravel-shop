@@ -17,6 +17,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "jxlwqq/quill": "1.0.2",
         "laravel/framework": "^8.12",
+        "laravel/horizon": "^5.7",
         "laravel/tinker": "^2.5",
         "laravel/ui": "^3.0",
         "moontoast/math": "^1.2",
