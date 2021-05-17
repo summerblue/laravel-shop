@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 
+
+Route::post('seckill_orders', 'OrdersController@seckill')->name('seckill_orders.store');
+
 Route::get('/', 'PagesController@root')->name('root');
 
 Auth::routes();

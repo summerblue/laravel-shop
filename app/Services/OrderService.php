@@ -13,6 +13,7 @@ use App\Models\CouponCode;
 use App\Exceptions\CouponCodeUnavailableException;
 use App\Exceptions\InternalException;
 use App\Jobs\RefundInstallmentOrder;
+use Illuminate\Support\Facades\Redis;
 
 class OrderService
 {
@@ -218,6 +219,8 @@ class OrderService
             $item->product()->associate($sku->product_id);
             $item->productSku()->associate($sku);
             $item->save();
+
+            Redis::decr('seckill_sku_'.$sku->id);
 
             return $order;
         });
